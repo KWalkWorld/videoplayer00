@@ -84,6 +84,7 @@
 </LinearLayout>
 
 ### 2.准备好视频后准备播放：
+```
         videoView.setVideoPath(getVideoPath(R.raw.bytedance));
 
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -103,8 +104,10 @@
                 }
             }
         });
+```
 
 ### 3.设置播放键：按下可以播放或暂停视频
+```
         playkey.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -119,8 +122,10 @@
                 }
             }
         });
+```
 
 ### 4.设置SeekBar点击和拖拽事件:
+```
     seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {}
@@ -139,8 +144,10 @@
             }
         }
     });
+```
 
 ### 5.SeekBar随视频进度移动：
+```
   private class BarTask extends AsyncTask<Void, Integer, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
@@ -157,11 +164,15 @@
             curTime.setText(mySDF.format(new Date(values[0])));
         }
     }
-在视频进度更改时，加入：  
+```
+在视频进度更改时，加入:  
+```
 seekBarTask = new BarTask();
 seekBarTask.execute();
+```
 
 ### 6.增加MediaController:
+```
     MediaController mediaController = new MediaController(this);
     videoView.setMediaController(mediaController);
 
@@ -170,17 +181,21 @@ seekBarTask.execute();
                     RelativeLayout.LayoutParams.MATCH_PARENT);
     layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
     videoView.setLayoutParams(layoutParams);
+```
 
 ### 7.手机横置后全屏播放：
+```
      if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
          getSupportActionBar().hide();
          getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
      }
+```
 
 ### 8. 视频播放状态保存和恢复
 保存：  
+```
     protected void onPause() {
         curProgress = videoView.getCurrentPosition();
         isPlaying = videoView.isPlaying();
@@ -192,9 +207,11 @@ seekBarTask.execute();
         outState.putBoolean("playingFlag", isPlaying);
         super.onSaveInstanceState(outState);
     }
+```
 恢复：  
+```
         if (savedInstanceState != null){
             curProgress = savedInstanceState.getInt("curProgress");
             isPlaying = savedInstanceState.getBoolean("isPlaying");
         }
-
+```
