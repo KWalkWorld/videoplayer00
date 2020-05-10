@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="236dp"
+            android:layout_centerInParent="true"/>
+
+
+    </RelativeLayout>
+
+<!--    <MediaController
+        android:id="@+id/mController"
+        android:layout_width="match_parent"
+        android:layout_height="76dp">
+    </MediaController>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/curTime"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btn_playkey"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:background="#EF0606"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/totalTime"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+
+            android:layout_gravity="end"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btn_Open"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="more"
+            android:background="#fff"
+            android:textColor="#000"/>
+
+    </LinearLayout>
+
+</LinearLayout>
